@@ -1,9 +1,22 @@
 {
   "dependencies": {
+    "assert": "^2.0.0",
     "mocha": "^10.2.0",
     "selenium-webdriver": "^4.7.1"
   },
+  "mocha": {
+    "extension": [
+      "js"
+    ],
+    "reporter": "spec",
+    "spec": "tests/**/*.test.js",
+    "timeout": "10000",
+    "ui": "bdd",
+    "watch-files": [
+      "tests/**/*.js"
+    ]
+  },
   "scripts": {
-    "test": "mocha verify.test.js"
+    "test": "mocha"
   }
 }

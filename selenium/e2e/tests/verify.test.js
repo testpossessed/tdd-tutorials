@@ -1,6 +1,6 @@
 const {By, Builder} = require('selenium-webdriver');
 const {suite} = require('selenium-webdriver/testing');
-const {assert} = require('assert');
+const assert = require('assert');
 
 suite(function(env) {
   describe('Verify Selenium Setup', function() {
