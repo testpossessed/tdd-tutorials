@@ -1,0 +1,8 @@
+{
+  "name": "e2e-with-selenium",
+  "version": "0.0.0",
+  "description": "E2E testing with Selenium Web Driver",
+  "private": true,
+  "author": "Mike Hanson",
+  "license": "ISC"
+}

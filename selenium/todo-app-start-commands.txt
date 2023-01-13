@@ -1,0 +1,8 @@
+Windows Command Prompt
+SET DEBUG=todo-app:* & npm start
+
+Windows Powershell
+$env:DEBUG='todo-app:*'; npm start
+
+MAC OS
+DEBUG=todo-app:* npm start
