@@ -3,7 +3,7 @@ import PageBase from './pageBase.js';
 
 class HomePage extends PageBase {
   async addTask() {
-    await this.clickOnElementWithId('addTask');
+    await this.waitForElementWithIdAndClick('addTask');
     return new AddTaskPage();
   }
 }
