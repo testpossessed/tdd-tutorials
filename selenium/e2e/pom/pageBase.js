@@ -1,22 +1,21 @@
-import { By, Builder, until } from 'selenium-webdriver';
-
-var driver = new Builder().forBrowser('chrome').build();
+import { By, until } from 'selenium-webdriver';
 
 class PageBase {
-  constructor() {
-    global.driver = driver;
+
+  constructor(driver) {
+    this.driver = driver;
   }
 
   async navigateTo(url) {
-    await driver.get(url);
+    await this.driver.get(url);
   }
 
   async closeBrowser() {
-    await driver.quit();
+    await this.driver.quit();
   }
 
   async findElementById(id) {
-    return await driver.findElement(By.id(id));
+    return await this.driver.findElement(By.id(id));
   }
 
   async clickOnElementWithId(id) {
@@ -24,7 +23,7 @@ class PageBase {
   }
 
   async findElementByCss(css) {
-    return await driver.findElement(By.css(css));
+    return await this.driver.findElement(By.css(css));
   }
 
   async clickOnElementWithCss(css) {
@@ -40,31 +39,31 @@ class PageBase {
   }
   
   async getTitle() {
-    return await driver.getTitle();
+    return await this.driver.getTitle();
   }  
 
   async waitUntilUrlIs(url) {
-    await driver.wait(until.urlIs(url));
+    await this.driver.wait(until.urlIs(url));
   }
 
   async waitUntilUrlMatches(regEx) {
-    await driver.wait(until.urlMatches(regEx));
+    await this.driver.wait(until.urlMatches(regEx));
   }
 
   async waitUntilTitleIs(title) {
-    await driver.wait(until.titleIs(title));
+    await this.driver.wait(until.titleIs(title));
   }
 
   async waitUntilTitleMatches(regEx) {
-    await driver.wait(until.titleMatches(regEx));
+    await this.driver.wait(until.titleMatches(regEx));
   }
 
   async waitForElementWithId(id) {
-    return await driver.wait(until.elementLocated(By.id(id)));
+    return await this.driver.wait(until.elementLocated(By.id(id)));
   }
 
   async waitForElementWithCss(css) {
-    return await driver.wait(until.elementLocated(By.css(id)));
+    return await this.driver.wait(until.elementLocated(By.css(id)));
   }
 
   async waitForElementWithIdAndClick(id) {
@@ -95,12 +94,12 @@ class PageBase {
 
   async waitForUrlToBe(url) {
     await this.waitUntilUrlIs(url);
-    return await driver.getCurrentUrl();
+    return await this.driver.getCurrentUrl();
   }
 
   async waitForUrlToMatch(regEx) {
     await this.waitUntilUrlMatches(regEx);
-    return await driver.getCurrentUrl();
+    return await this.driver.getCurrentUrl();
   }
 }
 

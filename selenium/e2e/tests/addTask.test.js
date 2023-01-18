@@ -1,11 +1,13 @@
+import { Builder } from 'selenium-webdriver';
 import { equal } from 'assert';
 import HomePage from '../pom/homePage.js';
 
-describe.only('Add Task', function() {
+describe('Add Task', function() {
   let homePage;
 
   before(async function() {
-    homePage = new HomePage();
+    const driver = new Builder().forBrowser('chrome').build();
+    homePage = new HomePage(driver);
     homePage.navigateTo('http://localhost:3000');
   });
 
