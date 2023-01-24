@@ -7,7 +7,8 @@ class HomePage extends PageBase {
   }
 
   async addTask() {
-    await this.waitForElementWithIdAndClick('addTask');
+    await this.waitForElementWithIdAndClick('addTask');    
+    await this.waitForTitleToBe('To Do - Add Task');
     return new AddTaskPage(this.driver);
   }
 }

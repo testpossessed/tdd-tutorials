@@ -3,3 +3,8 @@ extends layout
 block content
   h1= title
 
+  p Complete the form below and click Add to create a new Task.
+  form(action='./addtask', method='POST')
+    label Name: 
+      input(type="text", name="taskName", id="taskName", required=true)
+
