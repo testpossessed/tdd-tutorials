@@ -1,14 +1,14 @@
 const { chromium } = require("playwright");
 const { expect } = require("chai");
 
-describe("My example E2E test with Playwright", () => {
+describe("On Site Launch", () => {
   let browser;
   let page;
 
   before(async () => {
     browser = await chromium.launch();
     page = await browser.newPage();
-    await page.goto("https://www.example.com/");
+    await page.goto("http://localhost:8080");
   });
 
   after(async () => {
@@ -16,9 +16,8 @@ describe("My example E2E test with Playwright", () => {
     await browser.close();
   });
 
-  it("has header", async () => {
-    const h1 = await page.$("h1");
-    const text = await h1.innerText();
-    expect(text).to.equal("Example Domain");
+  it("Should have the correct title", async () => {
+    expect(await page.title()).to.equal("Kwizzer");
   });
+
 });
