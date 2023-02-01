@@ -1,23 +1,23 @@
 const { chromium } = require("playwright");
 const { expect } = require("chai");
+const { HomePage } = require("./pom/homePage");
 
 describe("On Site Launch", () => {
   let browser;
-  let page;
+  let homePage;
 
   before(async () => {
     browser = await chromium.launch();
-    page = await browser.newPage();
-    await page.goto("http://localhost:8080");
+    homePage = new HomePage(browser);
+    await homePage.navigateTo("http://localhost:8080");
   });
 
   after(async () => {
-    await page.close();
+    await homePage.close();
     await browser.close();
   });
 
   it("Should have the correct title", async () => {
-    expect(await page.title()).to.equal("Kwizzer");
+    expect(await homePage.getTitle()).to.equal("Kwizzer");
   });
-
 });
